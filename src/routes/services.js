@@ -12,15 +12,6 @@ router.post('/transfer', function (req, res) {
     let from = req.body.from;
     let to = req.body.to;
     let amount = parseInt(req.body.amount);
-
-    console.log("AMOUNT:- " + amount);
-
-    console.log("\n");
-    console.log("BEFORE:");
-    console.log(".SAVINGS:- " + accounts["savings"].balance);
-    console.log("CHECKING:- " + accounts["checking"].balance);
-    console.log("\n");
-
     if (from === 'savings' & to === 'checking') {
         console.log("CASE ONE\n");
         accounts["savings"].balance = accounts["savings"].balance - amount;
@@ -30,13 +21,6 @@ router.post('/transfer', function (req, res) {
         accounts["checking"].balance = accounts["checking"].balance - amount;
         accounts["savings"].balance = accounts["savings"].balance + amount;
     }
-
-    console.log("\n");
-    console.log("AFTER:");
-    console.log(".SAVINGS:- " + accounts["savings"].balance);
-    console.log("CHECKING:- " + accounts["checking"].balance);
-    console.log("\n");
-
     writeJSON();
     res.render('transfer', { message: "Transfer Completed" })
 })
