@@ -25,7 +25,5 @@ app.get('/profile', function (req, res) {
     res.render('profile', { user: users[0] })
 })
 
-app.listen(3000, () => {
-    console.log("PS Project Running on port http://localhost:3000");
-})
+app.listen(3000);
 

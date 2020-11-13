@@ -13,11 +13,9 @@ router.post('/transfer', function (req, res) {
     let to = req.body.to;
     let amount = parseInt(req.body.amount);
     if (from === 'savings' & to === 'checking') {
-        console.log("CASE ONE\n");
         accounts["savings"].balance = accounts["savings"].balance - amount;
         accounts["checking"].balance = accounts["checking"].balance + amount;
     } else if (from === 'checking' & to === 'savings') {
-        console.log("CASE TWO\n");
         accounts["checking"].balance = accounts["checking"].balance - amount;
         accounts["savings"].balance = accounts["savings"].balance + amount;
     }
